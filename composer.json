@@ -1,0 +1,40 @@
+{
+    "name": "morscate/uber-eats",
+    "description": "An PHP client to integrate with the Uber Eats API",
+    "keywords": ["PHP", "Uber Eats", "delivery", "api client"],
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/http": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Morscate\\UberEats\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rik Morskate",
+            "email": "rik@morscate.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Morscate\\UberEats\\UberEatsServiceProvider"
+            ]
+        }
+    }
+}
