@@ -3,7 +3,8 @@ This package allows you to easily make requests to the new Uber Eats Marketplace
 
 ## Requirements
 
-- PHP >= 8.0
+- PHP >= 8.1
+- Laravel >= 9.0
 
 ## Installation
 
@@ -16,7 +17,8 @@ composer require morscate/uber-eats
 The package will automatically register itself.
 
 ## Configuration
-Add the following environment variables to your .env file:
+To start using the Uber Eats API you will need a client ID and client secret. You can get these by creating an app on the [Uber Developer Portal](https://developer.uber.com/dashboard/).
+Add the Client ID and client secret to your .env file:
 ```php
 UBER_EATS_CLIENT_ID=
 UBER_EATS_CLIENT_SECRET=
