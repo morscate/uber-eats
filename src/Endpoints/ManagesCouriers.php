@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Morscate\UberEats\Endpoints;
 
-class UberEatsCourierApi extends UberEatsApi
+trait ManagesCouriers
 {
+    protected string $courierUrl = 'https://api.uber.com/v1/eats/stores';
+
     public function ingestCourierLiveLocation(
         string $orderId,
         string $restaurantId,
@@ -27,10 +29,11 @@ class UberEatsCourierApi extends UberEatsApi
             ],
         ];
 
-        $response = $this->request()->post(
-            '/v1/eats/byoc/restaurants/orders/event/location',
-            $data
-        );
+        $response = $this->request($this->courierUrl)
+            ->post(
+                '/v1/eats/byoc/restaurants/orders/event/location',
+                $data
+            );
 
         if ($response->successful()) {
             return $response->json();

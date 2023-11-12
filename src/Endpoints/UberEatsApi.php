@@ -10,15 +10,18 @@ use Illuminate\Support\Facades\Http;
 
 class UberEatsApi
 {
+    use ManagesIntegrations;
+    use ManagesMenus;
+    use ManagesOrders;
+    use ManagesCouriers;
+
     private string $tokenUrl = 'https://login.uber.com/oauth/v2/token';
 
-    protected string $baseUrl = 'https://api.uber.com';
-
-    protected function request(): PendingRequest
+    public function request(string $baseUrl): PendingRequest
     {
         $accessToken = $this->getAccessToken();
 
-        return Http::baseUrl($this->baseUrl)
+        return Http::baseUrl($baseUrl)
             ->asJson()
             ->withHeaders([
                 'Authorization' => 'Bearer '.$accessToken,

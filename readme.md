@@ -1,21 +1,52 @@
-# Event Flow
-This is an ALPHA version of the Event flow package. Do not use this is production!
+# Implement the new Uber Eats Marketplace API
+This package allows you to easily make requests to the new Uber Eats Marketplace API.
 
 ## Requirements
 
 - PHP >= 8.0
-- Laravel >= 9.0
 
-## Publish config
-If you need to publish the config file, you can do so by running the following command:
-```
-php artisan vendor:publish --tag=event-flow-config
+## Installation
+
+You can install the package via composer:
+
+```bash
+composer require morscate/uber-eats
 ```
 
-## Webhooks
-You 
+The package will automatically register itself.
+
+## Configuration
+Add the following environment variables to your .env file:
+```php
+UBER_EATS_CLIENT_ID=
+UBER_EATS_CLIENT_SECRET=
 ```
-$this
+
+## Making requests
+### Activate an integration
+Before you can start using the API, you need to activate an store integration. To do so you need to make sure to have access to the `eats.pos_provisioning` scope (https://developer.uber.com/docs/eats/references/api/v1/post-eats-stores-storeid-posdata). When you have access to this scope add it to the `UBER_EATS_SCOPE` through the config or .env.
+
+You can do this by using the following code:
+```php
+$uberEatsApi = new UberEatsApi();
+$uberEatsApi->activateIntegration(
+        storeId: "{store_id}",
+        isOrderManager: true
+    );
+```
+
+### Getting orders
+To get all orders from a store, you can use the following code:
+```php
+$uberEatsApi = new UberEatsApi();
+$uberEatsApi->getOrders("{store_id}");
+```
+
+## Create your own request
+If you need to create your own request, you can use the following code:
+```php
+$uberEatsApi = new UberEatsApi();
+$uberEatsApi->request()->get('https://api.uber.com/v1/delivery/store/{$storeId}/orders');
 ```
 
 ## Security Vulnerabilities

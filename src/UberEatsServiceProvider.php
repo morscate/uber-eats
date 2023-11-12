@@ -2,6 +2,7 @@
 
 namespace Morscate\UberEats;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class UberEatsServiceProvider extends ServiceProvider
@@ -16,7 +17,11 @@ class UberEatsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if ($this->app instanceof Application && $this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/uber-eats.php' => config_path('uber-eats.php'),
+            ], 'uber-eats-config');
+        }
     }
 
     /**

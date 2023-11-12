@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Morscate\UberEats\Endpoints;
 
-class UberEatsMenuApi extends UberEatsApi
+trait ManagesMenus
 {
-    protected string $baseUrl = 'https://api.uber.com/v2/eats/stores';
+    protected string $menuUrl = 'https://api.uber.com/v2/eats/stores';
 
     public function getMenu(string $storeId): ?object
     {
-        $response = $this->request()->get("/{$storeId}/menus");
+        $response = $this->request($this->menuUrl)
+            ->get("/{$storeId}/menus");
 
         if ($response->successful()) {
             return $response->object();
@@ -28,7 +29,7 @@ class UberEatsMenuApi extends UberEatsApi
      */
     public function upsertMenu(string $storeId, array $menu): bool
     {
-        $response = $this->request()
+        $response = $this->request($this->menuUrl)
             ->asJson()
             ->put("/v2/eats/stores/{$storeId}/menus", $menu);
 
