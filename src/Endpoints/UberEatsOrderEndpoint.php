@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace Morscate\UberEats\Endpoints;
 
 use Carbon\Carbon;
-use Morscate\UberEats\Enums\CancelType;
+use Morscate\UberEats\Enums\ReasonType;
 
-class UberEatsOrderApi extends UberEatsApi
+class UberEatsOrderEndpoint extends UberEatsApi
 {
     protected string $baseUrl = 'https://api.uber.com/v1/delivery';
 
-    public function getOrders(string $storeId): array
+    public function getOrders(string $storeId)
     {
         $response = $this->request()->get("/store/{$storeId}/orders");
 
         if ($response->successful()) {
-            return $response->object()->data;
+            return $response->object();
         }
 
         $response->throw();
@@ -27,7 +27,7 @@ class UberEatsOrderApi extends UberEatsApi
         $response = $this->request()->get("/order/{$orderId}?expand=deliveries,carts,payment");
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();
@@ -66,11 +66,11 @@ class UberEatsOrderApi extends UberEatsApi
     public function denyOrder(
         string $orderId,
         string $reasonInfo = null,
-        string $reasonType = null,
+        ReasonType $reasonType = null,
     ) {
         $response = $this->request()->post(
             "/order/{$orderId}/deny",
-            $this->transformReason($reasonInfo, $reasonType)
+            $this->transformReason($reasonInfo, $reasonType->value)
         );
 
         if ($response->successful()) {
@@ -83,10 +83,8 @@ class UberEatsOrderApi extends UberEatsApi
     public function cancelOrder(
         string $orderId,
         string $reasonInfo = null,
-        CancelType $reasonType = null,
+        ReasonType $reasonType = null,
     ) {
-        dd($reasonType);
-
         $response = $this->request()->post(
             "/order/{$orderId}/cancel",
             $this->transformReason($reasonInfo, $reasonType->value)
@@ -102,7 +100,8 @@ class UberEatsOrderApi extends UberEatsApi
     private function transformReason(
         string $info = null,
         string $type = null,
-        string $clientErrorCode = null
+        string $clientErrorCode = null,
+        array $itemMetadata = null,
     ): array {
         $reason = [];
 
@@ -119,7 +118,9 @@ class UberEatsOrderApi extends UberEatsApi
             $reason['client_error_code'] = $clientErrorCode;
         }
 
-        //item_metadata
+        if ($itemMetadata) {
+            $reason['item_metadata'] = $itemMetadata;
+        }
 
         return $reason;
     }

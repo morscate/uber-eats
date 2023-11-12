@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Morscate\UberEats\Enums;
 
-enum DenyReason: string
+enum ReasonType: string
 {
     case ITEM_ISSUE = 'ITEM_ISSUE';
-    case KITCHENCLOSED = 'KITCHENCLOSED';
+    case KITCHEN_CLOSED = 'KITCHEN_CLOSED';
     case CUSTOMER_CALLED_TO_CANCEL = 'CUSTOMER_CALLED_TO_CANCEL';
     case RESTAURANT_TOO_BUSY = 'RESTAURANT_TOO_BUSY';
     case ORDER_VALIDATION = 'ORDER_VALIDATION';
@@ -26,7 +26,7 @@ enum DenyReason: string
     {
         return match ($this) {
             self::ITEM_ISSUE => 'Issue with an item or modifier',
-            self::KITCHENCLOSED => 'Kitchen is closed',
+            self::KITCHEN_CLOSED => 'Kitchen is closed',
             self::CUSTOMER_CALLED_TO_CANCEL => 'Customer called to cancel',
             self::RESTAURANT_TOO_BUSY => 'Restaurant is too busy',
             self::ORDER_VALIDATION => 'Order validation error',

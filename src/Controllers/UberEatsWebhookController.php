@@ -15,9 +15,9 @@ class UberEatsWebhookController extends Controller
     {
         Log::info(json_encode($request), ['request' => $request->toArray(), 'headers' => $request->headers->all()]);
 
-        if (! $this->hasValidSignature($request)) {
-            return response()->json('Invalid signature', 401);
-        }
+       if (! $this->hasValidSignature($request)) {
+           return response()->json('Invalid signature', 401);
+       }
 
         $webhook = $this->transformNotification($request);
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Morscate\UberEats\Endpoints;
 
-class UberEatsIntegrationApi extends UberEatsApi
+class UberEatsIntegrationEndpoint extends UberEatsApi
 {
     protected string $baseUrl = 'https://api.uber.com/v1/eats/stores';
 
@@ -55,13 +55,13 @@ class UberEatsIntegrationApi extends UberEatsApi
             'is_order_manager' => $isOrderManager,
             'integrator_store_id' => $integratorStoreId,
             'integrator_brand_id' => $integratorBrandId,
-            'order_release_enabled' => true,
-            'require_manual_acceptance' => false,
+            //            'order_release_enabled' => true,
+            //            'require_manual_acceptance' => false,
         ];
 
-        $data['webhooks_config']['schedule_order_webhooks']['is_enabled'] = true;
+//        $data['webhooks_config']['schedule_order_webhooks']['is_enabled'] = true;
 
-//        dd($data);
+//        dd(json_encode($data));
 
         $response = $this->request()->patch(
             "/{$storeId}/pos_data",
