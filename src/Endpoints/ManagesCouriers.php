@@ -36,7 +36,7 @@ trait ManagesCouriers
             );
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();

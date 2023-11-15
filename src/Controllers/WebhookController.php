@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Morscate\UberEats\UberEatsWebhook;
 
-class UberEatsWebhookController extends Controller
+class WebhookController extends Controller
 {
     public function handle(Request $request)
     {

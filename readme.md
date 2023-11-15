@@ -44,11 +44,20 @@ $uberEatsApi = new UberEatsApi();
 $uberEatsApi->getOrders("{store_id}");
 ```
 
-## Create your own request
+### Create your own request
 If you need to create your own request, you can use the following code:
 ```php
 $uberEatsApi = new UberEatsApi();
 $uberEatsApi->request()->get('https://api.uber.com/v1/delivery/store/{$storeId}/orders');
+```
+
+## Webhooks
+To start receiving webhooks from Uber Eats, you need to add the following route the `App\Providers\RouteServiceProvider` file:
+```php
+$this->routes(function () {
+    // ...
+    Route::uberEatsWebhooks();
+});
 ```
 
 ## Security Vulnerabilities

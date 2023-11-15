@@ -14,7 +14,7 @@ trait ManagesOrders
     public function getOrders(string $storeId)
     {
         $response = $this->request($this->orderUrl)
-            ->get("/store/{$storeId}/orders");
+            ->get("/store/{$storeId}/orders?expand=deliveries,carts,payment");
 
         if ($response->successful()) {
             return $response->object();
@@ -60,7 +60,7 @@ trait ManagesOrders
             );
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();
@@ -78,7 +78,7 @@ trait ManagesOrders
             );
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();
@@ -95,7 +95,7 @@ trait ManagesOrders
         );
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();
@@ -141,7 +141,7 @@ trait ManagesOrders
             );
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();
@@ -153,7 +153,7 @@ trait ManagesOrders
             ->post("/order/{$orderId}/ready", (object) []);
 
         if ($response->successful()) {
-            return $response->json();
+            return $response->object();
         }
 
         $response->throw();

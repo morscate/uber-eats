@@ -3,13 +3,16 @@
 namespace Morscate\UberEats;
 
 use Illuminate\Foundation\Application;
+use Illuminate\Routing\Route;
 use Illuminate\Support\ServiceProvider;
+use Morscate\UberEats\Controllers\WebhookController;
 
 class UberEatsServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
-        //
+        $this->publishConfig();
+        $this->registerMacros();
     }
 
     /**
@@ -24,13 +27,21 @@ class UberEatsServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * Setup the configuration.
-     */
-    protected function configure(): void
+    protected function publishConfig(): void
     {
-        $source = realpath($raw = __DIR__.'/../config/uber-eats.php') ?: $raw;
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/uber-eats.php' => config_path('uber-eats.php'),
+            ], 'uber-eats');
+        }
 
-        $this->mergeConfigFrom($source, 'uber-eats');
+        $this->mergeConfigFrom(__DIR__.'/../config/uber-eats.php', 'uber-eats');
+    }
+
+    protected function registerMacros(): void
+    {
+        Route::macro('uberEatsWebhooks', function (string $uri = 'uber-eats/webhooks') {
+            return $this->post($uri, [WebhookController::class, 'handle'])->name('uber-eats.webhooks');
+        });
     }
 }
