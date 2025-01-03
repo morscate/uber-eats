@@ -1,4 +1,4 @@
-# Implement the new Uber Eats Marketplace API
+# A Laravel client to integrate with the Uber Eats API
 This package allows you to easily make requests to the new Uber Eats Marketplace API.
 
 ## Requirements
