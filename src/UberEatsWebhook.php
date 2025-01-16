@@ -17,8 +17,9 @@ class UberEatsWebhook
         protected string $storeId,
         protected ?string $resourceId,
         protected array $payload,
+        protected array $headers,
     ) {
-//        $this->hmacSignature = Arr::get($payload, 'additionalData.hmacSignature');
+        //
     }
 
     public function platform(): string
@@ -48,12 +49,12 @@ class UberEatsWebhook
         return $this->payload;
     }
 
-//    public function hmacSignature(): string
-//    {
-//        return $this->hmacSignature;
-//    }
+    public function headers(): array
+    {
+        return $this->headers;
+    }
 
-    public static function fromNotification(array $notification): self
+    public static function fromNotification(array $notification, array $headers): self
     {
         $storeId = Arr::get($notification, 'meta.user_id') ?? Arr::get($notification, 'store_id');
         $resourceId = Arr::get($notification, 'meta.resource_id');
@@ -62,7 +63,8 @@ class UberEatsWebhook
             $notification['event_type'],
             $storeId,
             $resourceId,
-            $notification
+            $notification,
+            $headers
         );
     }
 }

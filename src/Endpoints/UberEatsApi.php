@@ -49,9 +49,9 @@ class UberEatsApi
             ->post(
                 $this->tokenUrl,
                 [
-                    'client_id' => config('services.uber_eats.client_id'),
-                    'client_secret' => config('services.uber_eats.client_secret'),
-                    'scope' => config('services.uber_eats.scope'),
+                    'client_id' => config('uber-eats.client_id'),
+                    'client_secret' => config('uber-eats.client_secret'),
+                    'scope' => config('uber-eats.scope'),
                     'grant_type' => 'client_credentials',
                 ]
             );
