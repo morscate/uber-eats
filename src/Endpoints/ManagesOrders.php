@@ -129,14 +129,16 @@ trait ManagesOrders
         return $reason;
     }
 
-    public function updateOrderReadyTime(string $orderId, string $readyForPickupTime)
-    {
+    public function updateOrderReadyTime(
+        string $orderId,
+        Carbon $readyForPickupTime
+    ) {
         $response = $this->request($this->orderUrl)
             ->asJson()
             ->post(
                 "/order/{$orderId}/update-ready-time",
                 (object) [
-                    'ready_for_pickup_time' => $readyForPickupTime,
+                    'ready_for_pickup_time' => $readyForPickupTime->toRfc3339String(),
                 ]
             );
 
