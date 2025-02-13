@@ -37,13 +37,14 @@ trait ManagesOrders
 
     public function acceptOrder(
         string $orderId,
-        Carbon $pickupAt,
+        Carbon $pickupAt = null,
         string $externalId = null,
         string $acceptedBy = null,
     ) {
-        $data = [
-            'ready_for_pickup_time' => $pickupAt->toRfc3339String(),
-        ];
+        $data = [];
+        if ($pickupAt) {
+            $data['ready_for_pickup_time'] = $pickupAt->toRfc3339String();
+        }
 
         if ($externalId) {
             $data['external_id'] = $externalId;
