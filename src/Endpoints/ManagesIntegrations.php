@@ -10,9 +10,9 @@ trait ManagesIntegrations
 
     public function activateIntegration(
         string $storeId,
-        bool $isOrderManager = null,
-        string $integratorStoreId = null,
-        string $integratorBrandId = null,
+        bool $isOrderManager,
+        string $integratorStoreId,
+        string $integratorBrandId,
     ) {
         $data = [
             'is_order_manager' => $isOrderManager,
@@ -47,10 +47,10 @@ trait ManagesIntegrations
 
     public function updateIntegration(
         string $storeId,
-        bool $integrationEnabled = null,
-        bool $isOrderManager = null,
-        string $integratorStoreId = null,
-        string $integratorBrandId = null,
+        bool $integrationEnabled,
+        bool $isOrderManager,
+        string $integratorStoreId,
+        string $integratorBrandId,
     ) {
         $data = [
             'integration_enabled' => $integrationEnabled,

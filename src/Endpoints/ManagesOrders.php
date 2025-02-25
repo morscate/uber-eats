@@ -69,8 +69,8 @@ trait ManagesOrders
 
     public function denyOrder(
         string $orderId,
-        string $reasonInfo = null,
-        ReasonType $reasonType = null,
+        string $reasonInfo,
+        ReasonType $reasonType,
     ) {
         $response = $this->request($this->orderUrl)
             ->post(
@@ -87,8 +87,8 @@ trait ManagesOrders
 
     public function cancelOrder(
         string $orderId,
-        string $reasonInfo = null,
-        ReasonType $reasonType = null,
+        string $reasonInfo,
+        ReasonType $reasonType,
     ) {
         $response = $this->request($this->orderUrl)->post(
             "/order/{$orderId}/cancel",
@@ -103,13 +103,12 @@ trait ManagesOrders
     }
 
     private function transformReason(
-        string $info = null,
-        string $type = null,
-        string $clientErrorCode = null,
-        array $itemMetadata = null,
+        ?string $info = null,
+        ?string $type = null,
+        ?string $clientErrorCode = null,
+        ?array $itemMetadata = null,
     ): array {
         $reason = [];
-
         if ($info) {
             $reason['info'] = $info;
         }
