@@ -37,9 +37,9 @@ trait ManagesOrders
 
     public function acceptOrder(
         string $orderId,
-        Carbon $pickupAt = null,
-        string $externalId = null,
-        string $acceptedBy = null,
+        ?Carbon $pickupAt = null,
+        ?string $externalId = null,
+        ?string $acceptedBy = null,
     ) {
         $data = [];
         if ($pickupAt) {
