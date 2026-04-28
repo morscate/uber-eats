@@ -6,8 +6,6 @@ namespace Morscate\UberEats\Endpoints;
 
 trait ManagesIntegrations
 {
-    protected string $integrationUrl = 'https://api.uber.com/v1/eats/stores';
-
     public function activateIntegration(
         string $storeId,
         bool $isOrderManager,
@@ -20,7 +18,7 @@ trait ManagesIntegrations
             'integrator_brand_id' => $integratorBrandId,
         ];
 
-        $response = $this->request($this->integrationUrl)
+        $response = $this->request($this->apiUrl('/v1/eats/stores'))
             ->post(
                 "/{$storeId}/pos_data",
                 array_filter($data)
@@ -35,7 +33,7 @@ trait ManagesIntegrations
 
     public function getIntegrationDetails(string $storeId)
     {
-        $response = $this->request($this->integrationUrl)
+        $response = $this->request($this->apiUrl('/v1/eats/stores'))
             ->get("/{$storeId}/pos_data");
 
         if ($response->successful()) {
@@ -59,7 +57,7 @@ trait ManagesIntegrations
             'integrator_brand_id' => $integratorBrandId,
         ];
 
-        $response = $this->request($this->integrationUrl)
+        $response = $this->request($this->apiUrl('/v1/eats/stores'))
             ->patch(
                 "/{$storeId}/pos_data",
                 array_filter($data)
@@ -69,6 +67,35 @@ trait ManagesIntegrations
             return $response->object();
         }
 
+        $response->throw();
+    }
+
+    /**
+     * Configure webhook URL for a store
+     * Note: Webhook URLs are typically configured in the Uber Developer Portal
+     * This method attempts to set it via the API if supported
+     */
+    public function configureWebhook(
+        string $storeId,
+        string $webhookUrl,
+    ) {
+        $data = [
+            'webhook_url' => $webhookUrl,
+        ];
+
+        // Try updating via pos_data endpoint
+        $response = $this->request($this->apiUrl('/v1/eats/stores'))
+            ->patch(
+                "/{$storeId}/pos_data",
+                $data
+            );
+
+        if ($response->successful()) {
+            return $response->object();
+        }
+
+        // If that doesn't work, the webhook URL needs to be configured
+        // manually in the Uber Developer Portal
         $response->throw();
     }
 }

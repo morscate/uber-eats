@@ -13,9 +13,15 @@ class UberEatsApi
     use ManagesIntegrations;
     use ManagesMenus;
     use ManagesOrders;
+    use ManagesStores;
     use ManagesCouriers;
 
-    private string $tokenUrl = 'https://login.uber.com/oauth/v2/token';
+    private string $tokenUrl;
+
+    public function __construct()
+    {
+        $this->tokenUrl = (string) config('uber-eats.auth_url', 'https://login.uber.com/oauth/v2/token');
+    }
 
     public function request(string $baseUrl): PendingRequest
     {
@@ -74,5 +80,12 @@ class UberEatsApi
         $response->throw();
 
         return null;
+    }
+
+    protected function apiUrl(string $path): string
+    {
+        $baseUrl = rtrim((string) config('uber-eats.api_base_url', 'https://api.uber.com'), '/');
+
+        return $baseUrl.$path;
     }
 }
