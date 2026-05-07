@@ -9,11 +9,9 @@ use Morscate\UberEats\Enums\ReasonType;
 
 trait ManagesOrders
 {
-    protected string $orderUrl = 'https://api.uber.com/v1/delivery';
-
     public function getOrders(string $storeId)
     {
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->get("/store/{$storeId}/orders?expand=deliveries,carts,payment");
 
         if ($response->successful()) {
@@ -25,7 +23,7 @@ trait ManagesOrders
 
     public function getOrder(string $orderId)
     {
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->get("/order/{$orderId}?expand=deliveries,carts,payment");
 
         if ($response->successful()) {
@@ -54,7 +52,7 @@ trait ManagesOrders
             $data['accepted_by'] = $acceptedBy;
         }
 
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->post(
                 "/order/{$orderId}/accept",
                 $data
@@ -72,7 +70,7 @@ trait ManagesOrders
         string $reasonInfo,
         ReasonType $reasonType,
     ) {
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->post(
                 "/order/{$orderId}/deny",
                 $this->transformReason($reasonInfo, $reasonType->value)
@@ -90,7 +88,7 @@ trait ManagesOrders
         string $reasonInfo,
         ReasonType $reasonType,
     ) {
-        $response = $this->request($this->orderUrl)->post(
+        $response = $this->request($this->apiUrl('/v1/delivery'))->post(
             "/order/{$orderId}/cancel",
             $this->transformReason($reasonInfo, $reasonType->value)
         );
@@ -133,7 +131,7 @@ trait ManagesOrders
         string $orderId,
         Carbon $readyForPickupTime
     ) {
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->asJson()
             ->post(
                 "/order/{$orderId}/update-ready-time",
@@ -151,7 +149,7 @@ trait ManagesOrders
 
     public function markOrderReady(string $orderId)
     {
-        $response = $this->request($this->orderUrl)
+        $response = $this->request($this->apiUrl('/v1/delivery'))
             ->post("/order/{$orderId}/ready", (object) []);
 
         if ($response->successful()) {

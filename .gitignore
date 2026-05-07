@@ -1,0 +1,34 @@
+# Environment Configuration
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.phpunit.result.cache
+phpunit.xml.bak
+
+# Logs
+*.log
+webhook-events.log.jsonl
+sandbox/*.log
+sandbox/*.jsonl
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~

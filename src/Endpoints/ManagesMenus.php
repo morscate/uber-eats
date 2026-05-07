@@ -6,11 +6,9 @@ namespace Morscate\UberEats\Endpoints;
 
 trait ManagesMenus
 {
-    protected string $menuUrl = 'https://api.uber.com/v2/eats/stores';
-
     public function getMenu(string $storeId): ?object
     {
-        $response = $this->request($this->menuUrl)
+        $response = $this->request($this->apiUrl('/v2/eats/stores'))
             ->get("/{$storeId}/menus");
 
         if ($response->successful()) {
@@ -29,9 +27,9 @@ trait ManagesMenus
      */
     public function upsertMenu(string $storeId, array $menu): bool
     {
-        $response = $this->request($this->menuUrl)
+        $response = $this->request($this->apiUrl('/v2/eats/stores'))
             ->asJson()
-            ->put("/v2/eats/stores/{$storeId}/menus", $menu);
+            ->put("/{$storeId}/menus", $menu);
 
         if ($response->successful()) {
             return true;

@@ -1,0 +1,652 @@
+{
+  "menus": [
+    {
+      "id": "external_section_1",
+      "title": {
+        "translations": {
+          "en": "Specials"
+        }
+      },
+      "service_availability": [
+        {
+          "day_of_week": "monday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "tuesday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "wednesday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "thursday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "friday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "saturday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        },
+        {
+          "day_of_week": "sunday",
+          "time_periods": [
+            {
+              "start_time": "00:00",
+              "end_time": "23:59"
+            }
+          ]
+        }
+      ],
+      "category_ids": [
+        "external_subsection_1",
+        "external_subsection_2",
+        "external_subsection_3",
+        "external_subsection_4",
+        "external_subsection_5",
+        "external_subsection_6",
+        "external_subsection_7",
+        "external_subsection_8",
+        "external_subsection_9",
+        "external_subsection_10"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "external_subsection_1",
+      "title": {
+        "translations": {
+          "en": "Specials"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Best Specials"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_1",
+          "type": "ITEM"
+        },
+        {
+          "id": "external_item_2",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_2",
+      "title": {
+        "translations": {
+          "en": "Burgers"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Classic burger lineup"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_3",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_3",
+      "title": {
+        "translations": {
+          "en": "Wraps"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Freshly rolled"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_4",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_4",
+      "title": {
+        "translations": {
+          "en": "Rice Bowls"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Filling meals"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_5",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_5",
+      "title": {
+        "translations": {
+          "en": "Salads"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Crisp and light"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_6",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_6",
+      "title": {
+        "translations": {
+          "en": "Pasta"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Saucy favorites"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_7",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_7",
+      "title": {
+        "translations": {
+          "en": "Pizza"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Stone-baked"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_8",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_8",
+      "title": {
+        "translations": {
+          "en": "Desserts"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Sweet ending"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_9",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_9",
+      "title": {
+        "translations": {
+          "en": "Beverages"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Hot and cold drinks"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_10",
+          "type": "ITEM"
+        }
+      ]
+    },
+    {
+      "id": "external_subsection_10",
+      "title": {
+        "translations": {
+          "en": "Combos"
+        }
+      },
+      "subtitle": {
+        "translations": {
+          "en": "Value bundles"
+        }
+      },
+      "entities": [
+        {
+          "id": "external_item_11",
+          "type": "ITEM"
+        },
+        {
+          "id": "external_item_12",
+          "type": "ITEM"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "external_item_1",
+      "title": {
+        "translations": {
+          "en": "Best Burger"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Sauce, habanero hot sauce, pickles and white bread"
+        }
+      },
+      "image_url": "https://duyt4h9nfnj50.cloudfront.net/sku/f2a668b94427c1a9b849ec50941cdbc0",
+      "price_info": {
+        "price": 10000,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_2",
+      "title": {
+        "translations": {
+          "en": "Loaded Fries"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Crispy fries topped with cheese sauce and spring onions"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877",
+      "price_info": {
+        "price": 4500,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_3",
+      "title": {
+        "translations": {
+          "en": "Double Cheese Burger"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Double beef patty with cheddar and grilled onions"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+      "price_info": {
+        "price": 12000,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_4",
+      "title": {
+        "translations": {
+          "en": "Chicken Caesar Wrap"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Grilled chicken, lettuce, parmesan and caesar dressing"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f",
+      "price_info": {
+        "price": 8200,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_5",
+      "title": {
+        "translations": {
+          "en": "Teriyaki Rice Bowl"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Chicken teriyaki with jasmine rice and sesame"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1512058564366-18510be2db19",
+      "price_info": {
+        "price": 9800,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_6",
+      "title": {
+        "translations": {
+          "en": "Garden Salad"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Mixed greens, cherry tomatoes, cucumber and vinaigrette"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1540420773420-3366772f4999",
+      "price_info": {
+        "price": 6500,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_7",
+      "title": {
+        "translations": {
+          "en": "Creamy Alfredo Pasta"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Fettuccine tossed in creamy parmesan sauce"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1645112411341-6c4fd023882c",
+      "price_info": {
+        "price": 9300,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_8",
+      "title": {
+        "translations": {
+          "en": "Margherita Pizza"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Tomato sauce, mozzarella and fresh basil"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+      "price_info": {
+        "price": 11000,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_9",
+      "title": {
+        "translations": {
+          "en": "Chocolate Brownie"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Warm chocolate brownie with fudge drizzle"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c",
+      "price_info": {
+        "price": 3900,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_10",
+      "title": {
+        "translations": {
+          "en": "Iced Lemon Tea"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Fresh brewed tea served over ice with lemon"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+      "price_info": {
+        "price": 2500,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_11",
+      "title": {
+        "translations": {
+          "en": "Burger Combo"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "Best Burger served with fries and iced lemon tea"
+        }
+      },
+      "image_url": "https://duyt4h9nfnj50.cloudfront.net/sku/f2a668b94427c1a9b849ec50941cdbc0",
+      "price_info": {
+        "price": 13900,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    },
+    {
+      "id": "external_item_12",
+      "title": {
+        "translations": {
+          "en": "Family Feast Combo"
+        }
+      },
+      "description": {
+        "translations": {
+          "en": "2 burgers, 1 pizza, loaded fries and 2 drinks"
+        }
+      },
+      "image_url": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+      "price_info": {
+        "price": 29900,
+        "overrides": []
+      },
+      "tax_info": {},
+      "dish_info": {
+        "classifications": {
+          "ingredients": null,
+          "additives": null
+        }
+      },
+      "product_info": {
+        "product_traits": null,
+        "countries_of_origin": null
+      },
+      "bundled_items": null
+    }
+  ],
+  "modifier_groups": []
+}
